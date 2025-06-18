@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>PDF Field Search</title>
+</head>
+<body>
+  <h1>Upload PDF and Search Fields</h1>
+  <form method="post" enctype="multipart/form-data">
+    <input type="file" name="pdf_file" accept=".pdf" required><br><br>
+    <label>Enter fields or names (comma-separated):</label><br>
+    <input type="text" name="keywords" required><br><br>
+    <button type="submit">Search</button>
+  </form>
+
+  {% if matches %}
+    <h2>Matched Rows</h2>
+    <ul>
+      {% for row in matches %}
+        <li>{{ row }}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</body>
+</html>
